@@ -9,8 +9,8 @@ terraform {
 }
 
 provider "google" {
-  project = var.project_id
-  region  = var.region
+  project     = var.project_id
+  region      = var.region
 }
 
 resource "google_cloud_run_service" "hello_world" {
@@ -31,20 +31,12 @@ resource "google_cloud_run_service" "hello_world" {
   }
 }
 
-resource "google_cloud_run_service_iam_policy" "noauth" {
+resource "google_cloud_run_service_iam_member" "noauth" {
   location    = google_cloud_run_service.hello_world.location
   project     = google_cloud_run_service.hello_world.project
   service     = google_cloud_run_service.hello_world.name
-  policy_data = data.google_iam_policy.noauth
-}
-
-data "google_iam_policy" "noauth" {
-  binding {
-    role = "roles/run.invoker"
-    members = [
-      "allUsers",
-    ]
-  }
+  role        = "roles/run.invoker"
+  member      = "allUsers"
 }
 
 resource "google_service_account" "cloud_run_invoker" {
@@ -60,3 +52,6 @@ resource "google_project_iam_binding" "run_invoker_binding" {
   ]
 }
 
+output "cloud_run_url" {
+  value = google_cloud_run_service.hello_world.status[0].url
+}
