@@ -11,5 +11,5 @@ This repository contains Terraform configuration files to deploy a "Hello World"
 
 1. **Clone the repository**
    ```sh
-   git clone https://github.com/yourusername/terraform-cloud-run.git
-   cd terraform-cloud-run
+   git clone https://github.com/kmlhtpgl/virgin_task.git
+   cd virgin_task
