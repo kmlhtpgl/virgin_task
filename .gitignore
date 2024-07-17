@@ -1,0 +1,39 @@
+# Terraform files
+*.tfstate
+*.tfstate.*
+crash.log
+.terraform/
+terraform.tfstate.backup
+.terraform.lock.hcl
+
+# Ignore override files as they are usually used to override resources locally.
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+# Ignore tfvars files only in specific directories
+env/**/terraform.tfvars
+
+# Credential files
+credentials.json
+*.pem
+*.key.json
+
+# Ignore editor-specific files
+# VS Code
+.vscode/
+.history/
+
+# MacOS
+.DS_Store
+
+# Linux
+*~
+
+# Windows
+Thumbs.db
