@@ -30,6 +30,8 @@ This repository contains Terraform configuration files to deploy a "Hello World"
    ```sh
       project_id = "your-dev-project-id"
       region     = "us-central1"
+
+   Repeat this for other environments (staging, prod)
 6. **Initialize Terraform**
    ```sh
    terraform init
